@@ -1,0 +1,14 @@
+/* 定义滚动弹出动画的初始状态：藏在下方、缩小 */
+.reveal {
+    opacity: 0;
+    transform: translateY(120px) scale(0.9);
+    /* 核心修改：使用具有弹性回弹效果的 cubic-bezier 曲线，模拟弹起感 */
+    transition: opacity 0.7s ease-out, transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: opacity, transform;
+}
+
+/* 滚动触发后：弹回原位、完全显示 */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
